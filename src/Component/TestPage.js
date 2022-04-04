@@ -48,7 +48,7 @@ function TestPage() {
         (temp2 = temo.filter((obj) => obj !== Number(e.target.value)));
       temo = temp2;
     }
-    localStorage.setItem(questions[count]._id, JSON.stringify(temo));
+    localStorage.setItem(questions[count]._id, JSON.stringify(temo.sort()));
 
     setCount3((prev) => prev + 1);
   };
