@@ -19,9 +19,9 @@ function App() {
           <Route path="*" element={<Navigate to="/" />} />
 
           <Route path="/" element={<HomePage />} />
-          <Route path={`/TestPage/:id/:id`} element={<TestPage />} />
+          <Route path={`/TestPage/:examid/:id`} element={<TestPage />} />
           {/* <Route path={"/TestPage"} element={<TestPage />} /> */}
-          <Route path={"/ResultPage"} element={<ResultPage />} />
+          <Route path={"/ResultPage/:id"} element={<ResultPage />} />
         </Routes>
       </Router>
     </>

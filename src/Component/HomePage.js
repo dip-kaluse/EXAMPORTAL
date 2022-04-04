@@ -3,8 +3,8 @@ import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 function HomePage() {
   const [posts, setPost] = useState([]);
-  const sendId = (srNo) => {
-    localStorage.setItem("ExamId", JSON.stringify(srNo));
+  const sendId = () => {
+    localStorage.setItem("testFinish", JSON.stringify(0));
   };
   useEffect(() => {
     axios
@@ -48,7 +48,7 @@ function HomePage() {
                               <button
                                 className="btn btn-warning"
                                 onClick={() => {
-                                  sendId(opt._id);
+                                  sendId();
                                 }}
                               >
                                 Start Test
