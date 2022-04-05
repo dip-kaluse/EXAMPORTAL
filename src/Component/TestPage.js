@@ -62,7 +62,7 @@ function TestPage() {
       .then((res) => {
         const temp = res.data.tests.filter((obj, index) => obj._id === examid);
         setTestOf(temp[0]);
-        temo = [];
+    
         const ind = temp[0].questions.filter((obj, index) => {
           if (obj._id === id) {
             setCount(index);
@@ -93,6 +93,7 @@ function TestPage() {
     }
   });
   useEffect(() => {
+      temo = [];
     questions.length > 0 &&
       navigate(`/TestPage/${testOf._id}/${questions[count]._id}`);
   }, [questions, count, count3]);
