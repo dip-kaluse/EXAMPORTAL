@@ -6,7 +6,7 @@ function ResultPage() {
   const { id } = useParams();
   const [testOf, setTestOf] = useState([]);
   const [count, setCount] = useState(0);
-  const [currectOption, setCurrectOption] = useState([]);
+
   const history = useNavigate();
   const goHome = () => {
     history("/");

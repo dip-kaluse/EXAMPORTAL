@@ -48,7 +48,8 @@ function TestPage() {
         (temp2 = temo.filter((obj) => obj !== Number(e.target.value)));
       temo = temp2;
     }
-    localStorage.setItem(questions[count]._id, JSON.stringify(temo));
+    console.log(temo);
+    localStorage.setItem(questions[count]._id, JSON.stringify(temo.sort()));
 
     setCount3((prev) => prev + 1);
   };
@@ -62,7 +63,7 @@ function TestPage() {
       .then((res) => {
         const temp = res.data.tests.filter((obj, index) => obj._id === examid);
         setTestOf(temp[0]);
-        temo = [];
+
         const ind = temp[0].questions.filter((obj, index) => {
           if (obj._id === id) {
             setCount(index);
@@ -83,7 +84,6 @@ function TestPage() {
       setButton("checkbox");
 
       if ((checks != null && checks.length) == 0) {
-        console.log("first");
         localStorage.removeItem(questions[count]._id);
       } else if (checks != null) {
         temo = checks;
@@ -93,6 +93,7 @@ function TestPage() {
     }
   });
   useEffect(() => {
+    temo = [];
     questions.length > 0 &&
       navigate(`/TestPage/${testOf._id}/${questions[count]._id}`);
   }, [questions, count, count3]);
